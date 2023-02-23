@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
 
@@ -29,10 +30,14 @@ to_box.send_keys("Glasgow")
 driver.implicitly_wait(10.0)
 to_box.send_keys(Keys.ENTER)
 
+#buttons = driver.find_element(by=By.TAG_NAME, value="button")
+
 #departingDate = driver.find_element("css_selector","routedatepicker-83050")
 #departingDate.click()
-#departingDate = driver.find_element("className","date-picker-button button-reset")
-#departingDate.click()
+departingDate = driver.find_element(By.CLASS_NAME, "route-date-picker-control")
+departingButton = departingDate.find_element(By.TAG_NAME, "button")
+
+departingButton.click()
 
 #submit_button = driver.find_element(by=By.CSS_SELECTOR, value="button")
 driver.implicitly_wait(10.0)
